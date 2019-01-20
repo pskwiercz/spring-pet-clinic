@@ -1,11 +1,13 @@
 package com.pskwiercz.springpetclinic.services.map;
 
 import com.pskwiercz.springpetclinic.model.Vet;
-import com.pskwiercz.springpetclinic.services.CRUDService;
+import com.pskwiercz.springpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CRUDService<Vet, Long> {
+@Service
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
