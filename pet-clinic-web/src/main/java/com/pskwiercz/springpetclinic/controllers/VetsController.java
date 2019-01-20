@@ -1,13 +1,22 @@
 package com.pskwiercz.springpetclinic.controllers;
 
+import com.pskwiercz.springpetclinic.services.VetService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class VetsController {
 
+    private VetService vetService;
+
+    public VetsController(VetService vetService) {
+        this.vetService = vetService;
+    }
+
     @RequestMapping("/vets")
-    public String listVets() {
+    public String listVets(Model model) {
+        model.addAttribute("vets", vetService.findAll());
         return "vets/index";
     }
 
